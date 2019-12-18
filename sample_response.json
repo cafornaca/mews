@@ -1,0 +1,64 @@
+{ "project": {
+    "project_name": "Model_Manager",
+    "application_name": "model_manager",
+    "connection_string": "sqlite:///:memory:",
+    "routes": [
+      {
+        "route": null,
+        "route_name": "models",
+        "assoc_resource": "Model",
+        "data_object_exists": true,
+        "data_object": "Model"
+      },
+      {
+        "route": null,
+        "route_name": "models/{obj_id:int}",
+        "assoc_resource": "Model",
+        "data_object_exists": true,
+        "data_object": "Model"
+      }
+    ],
+    "resources": [
+      {
+        "resource": null,
+        "resource_name": "Model",
+        "on_get": true,
+        "on_post": false,
+        "on_put": false,
+        "on_del": true,
+        "on_get_by_identifier": true,
+        "identifier": "_id"
+      }
+    ],
+    "models": [
+      {
+        "model": null,
+        "model_name": "Model",
+        "table_name": "store_models_here",
+        "init_model": "column_one",
+        "columns": [
+          {
+            "column": null,
+            "column_name": "column_one",
+            "column_type": "BIGINT()",
+            "column_additional": "",
+            "primary_key": true,
+            "foreign_key": false,
+            "unique": false,
+            "content": ""
+          },
+          {
+            "column": null,
+            "column_name": "column_two",
+            "column_type": "BIGINT()",
+            "column_additional": "",
+            "primary_key": false,
+            "foreign_key": false,
+            "unique": false,
+            "content": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger for Mews"
+  },
+  "host": "localhost:8000",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "project",
+      "description": "Information about your project"
+    },
+    {
+      "name": "routes",
+      "description": "The API routes your application uses"
+    },
+    {
+      "name": "resources",
+      "description": "Operations about the data"
+    },
+    {
+      "name": "models",
+      "description": "Database tables"
+    }
+  ],
+  "definitions": {
+    "Project": {
+      "type": "object",
+      "properties": {
+        "connection_string": {
+          "type": "string"
+        },
+        "project_name": {
+          "type": "string"
+        },
+        "application_name": {
+          "type": "string"
+        }
+      }
+    },
+    "Routes": {
+      "type": "object",
+      "properties": {
+        "route_name": {
+          "type": "string"
+        },
+        "assoc_resource": {
+          "type": "string"
+        },
+        "data_object_exists": {
+          "type": "boolean",
+          "default": false
+        },
+        "data_object": {
+          "type": "string"
+        }
+      }
+    },
+    "Models": {
+      "type": "object",
+      "properties": {
+        "model_name": {
+          "type": "string"
+        },
+        "table_name": {
+          "type": "string"
+        },
+        "init_model": {
+          "type": "string"
+        }
+      }
+    },
+    "Column": {
+      "type": "object",
+      "properties": {
+        "column_name": {
+          "type": "string"
+        },
+        "column_type": {
+          "type": "string"
+        },
+        "column_additional": {
+          "type": "string"
+        },
+        "primary_key": {
+          "type": "boolean"
+        },
+        "foreign_key": {
+          "type": "boolean"
+        },
+        "unique": {
+          "type": "boolean"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

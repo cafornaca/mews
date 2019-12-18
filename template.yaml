@@ -1,0 +1,47 @@
+# Name of project -- This will name your folder
+project_name : '' 
+
+# Name of Application -- This will name your Falcon application
+application_name : ''
+
+# Connection information -- This is how you will connect to your database.
+connection_string : ''
+
+# These are the routes that your API can take. Create route for each route.
+routes : 
+- route : 
+  route_name : ''
+  assoc_resource : ''
+  data_object_exists: False
+  data_object : ''
+
+# Resources are contained as data_objects. 
+resources:
+- resource:
+  resource_name : ''
+  on_get : True
+  on_post : False 
+  on_put : True
+  on_del : True
+  on_get_by_identifier: True
+  identifier : ''   # _id, for example
+
+# Models 
+models :
+- model: 
+  model_name : 'MyModelOne'
+  table_name : 'store_model_one_here'
+  init_model : 'column_one'
+  columns: 
+  - column:
+    column_name : 'column_one'
+    column_type : 'BIGINT()'
+    column_additional: '' # Additional calls
+    primary_key : True
+    foreign_key : False
+    unique : False
+    content : ''
+
+
+
+

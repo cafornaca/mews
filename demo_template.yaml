@@ -1,0 +1,60 @@
+# Name of project -- This will name your folder
+project_name : 'New_Project' 
+
+# Name of Application -- This will name your Falcon application
+application_name : 'NewProject'
+
+# Connection information -- This is how you will connect to your database.
+connection_string : 'sqlite:///:memory:'
+
+# These are the routes that your API can take. Create route for each route.
+routes : 
+- route : 
+  route_name : 'models'
+  assoc_resource : 'Model'
+  data_object_exists: True
+  data_object : 'Model'
+- route : 
+  route_name : 'models/{obj_id:int}'
+  assoc_resource : 'Model'
+  data_object_exists: True
+  data_object : 'Model'
+
+# Resources are contained as data_objects. 
+resources:
+- resource:
+  resource_name : 'Model'
+  on_get : True
+  on_post : False 
+  on_put : False
+  on_del : True
+  on_get_by_identifier: True
+  identifier : '_id'   # _id, for example
+
+# Models
+models :
+- model: 
+  model_name : 'Model'
+  table_name : 'store_models_here'
+  init_model : 'column_one'
+  columns: 
+  - column:
+    column_name : 'column_one'
+    column_type : 'BIGINT()'
+    column_additional: ''
+    primary_key : True
+    foreign_key : False
+    unique : False
+    content : ''
+  - column:
+    column_name : 'column_two'
+    column_type : 'BIGINT()'
+    column_additional: '' 
+    primary_key : False
+    foreign_key : False
+    unique : False
+    content : ''
+
+
+
+
