@@ -1,0 +1,37 @@
+from sqlalchemy import Column, VARBINARY, DATETIME, INTEGER, CHAR, VARCHAR, \
+    ForeignKey, ForeignKeyConstraint, UniqueConstraint, BIGINT, BOOLEAN
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import inspect
+import base64
+import datetime
+import pickle
+from uuid import uuid4
+import zlib
+
+
+DataModel = declarative_base()
+
+{% for model in data.models %}
+class {{ model.model_name }}(DataModel):
+    __tablename__ = '{{ model.table_name }}'
+
+    {% for column in model.columns %}
+    {{ column.column_name }} = Column({{ column.column_type }}{{ column.column_additional }},
+        {% if column.primary_key %}primary_key=True{% endif %}
+        {% if column.foreign_key %}foreign_key=True{% endif %}
+        {% if column.unique %}unique=True{% endif %})
+    {% endfor %}
+
+    def __init__(self, {{ model.init_model }}):
+    {% for column in model.columns %}
+    {% if column.content != '' %}
+        self.{{ column.column_name }} = {{column.content}}
+    {% else %}
+        self.{{ column.column_name }} = {{column.column_name}}
+    {% endif %}
+    
+    {% endfor %}
+
+
+{% endfor %}

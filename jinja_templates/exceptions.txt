@@ -1,0 +1,55 @@
+import falcon
+import logging
+
+logger = logging.getLogger()
+
+class JSONDecoderException(Exception):
+    def __init__(self, message = None, raise_error=True, logs=True):
+        
+        if message:
+            self.message = message
+        else:
+            self.message = "Unable to process the request body."
+        super().__init__(self.message)
+
+        if logs:
+            logger.exception(self.message)
+        if raise_error:
+            self._raise_error()
+
+    def _raise_error(self):
+        raise falcon.HTTPBadRequest(title="Malformed Input",
+                                    description=self.message)
+    def __str__(self):
+        return self.message
+
+
+class DataIntegrityException(Exception):
+    def __init__(self, message = None, raise_error=True, logs=True):
+        
+        if message:
+            self.message = message
+        else:
+            self.message = "Unable to create object due to existing object try to update the object instead."
+
+        super().__init__(self.message)
+
+        if logs:
+            logger.exception(message)
+        if raise_error:
+            self._raise_error()
+    
+    def _raise_error(self):
+        raise falcon.HTTPConflict(title="Duplicate Record",
+                                  description=self.message)
+    def __str__(self):
+        return self.message
+
+
+class TimeoutException(Exception):
+    def __init__(self, message=None):
+        self.message = message
+        
+    def __str__(self):
+        return self.message
+    

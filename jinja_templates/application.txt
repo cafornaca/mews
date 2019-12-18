@@ -1,0 +1,36 @@
+import falcon
+{% for resource in data.resources %}
+from {{ data.project_name }}.resources import {{ resource.resource_name }}Resource
+{% endfor %}
+from {{ data.project_name }}.utils.manager import DatabaseManager
+
+{% for resource in data.resources %}
+{% for route in data.routes %}
+{% if route.data_object_exists %}
+from {{ data.project_name }}.models import {{ resource.resource_name }}
+{% endif %}{% endfor %}{% endfor %}
+
+
+connection = '{{ data.connection_string }}'
+manager = DatabaseManager(connection=connection)
+
+class {{ data.project_name }}Application(falcon.API):
+    def __init__(self, configuration):
+    
+        super({{ data.project_name }}Application, self).__init__()
+        self.configuration = configuration
+        manager.setup()
+
+        {% for route in data.routes %}
+        self.add_route('/v1/{{ route.route_name }}', 
+            {{ route['assoc_resource'] }}Resource(engine=manager 
+            {% if route['data_object_exists'] %}, data_object={{ route['data_object'] }} {% endif %}))
+        {% endfor %}
+
+    @property
+    def configuration(self):
+        return self._configuration
+
+    @configuration.setter
+    def configuration(self, configuration):
+        self._configuration = configuration
