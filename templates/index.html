@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% import "helpers/forms.html" as forms %}
+<<<<<<< HEAD
+<<<<<<< HEAD
+{% block title %}Welcome to Mews!{% endblock %}
+{% block content %}
+{{ super() }}
+<form action="/project" method="POST">
+<fieldset>
+<legend>Add A Project</legend>
+{{ forms.render(project_form) }}
+<<<<<<< HEAD
+<p><input type="Submit" value="Save Site"></p>
+=======
+<p><input type="Submit" value="Save Project"></p>
+>>>>>>> 8fd19e9753f432d3fd96addedc1472c95432a125
+</fieldset>
+</form>
+
+<form action="/model" method="POST">
+<fieldset>
+<<<<<<< HEAD
+<legend>Add A Model</legend>
+{{ forms.render(models_form) }}
+<p><input type="Submit" value="Save Model"></p>
+=======
+<legend>Add A Table</legend>
+{{ forms.render(models_form) }}
+<p><input type="Submit" value="Save Table"></p>
+>>>>>>> 8fd19e9753f432d3fd96addedc1472c95432a125
+</fieldset>
+</form>
+
+<form action="/column" method="POST">
+    <fieldset>
+    <legend>Add A Column</legend>
+    {{ forms.render(columns_form) }}
+    <p><input type="Submit" value="Save Column"></p>
+    </fieldset>
+    </form>
+
+<form action="/resource" method="POST">
+    <fieldset>
+    <legend>Add A Resource</legend>
+    {{ forms.render(resources_form) }}
+    <p><input type="Submit" value="Save Resource"></p>
+    </fieldset>
+    </form>
+
+<form action="/route" method="POST">
+    <fieldset>
+    <legend>Add A Route</legend>
+    {{ forms.render(routes_form) }}
+    <p><input type="Submit" value="Save Route"></p>
+    </fieldset>
+    </form>
+=======
+{% block title %}Welcome to Flask Tracking!{% endblock %}
+=======
+{% block title %}Welcome to Mews!{% endblock %}
+>>>>>>> Got Flask app UI to workgit add .
+{% block content %}
+{{ super() }}
+<form action="/project" method="POST">
+<fieldset>
+<legend>Add A Project</legend>
+{{ forms.render(project_form) }}
+<p><input type="Submit" value="Save Site"></p>
+</fieldset>
+</form>
+
+<form action="/model" method="POST">
+<fieldset>
+<legend>Add A Model</legend>
+{{ forms.render(models_form) }}
+<p><input type="Submit" value="Save Model"></p>
+</fieldset>
+</form>
+<<<<<<< HEAD
+>>>>>>> Added web templates for Flask
+=======
+
+<form action="/column" method="POST">
+    <fieldset>
+    <legend>Add A Column</legend>
+    {{ forms.render(columns_form) }}
+    <p><input type="Submit" value="Save Column"></p>
+    </fieldset>
+    </form>
+
+<form action="/resource" method="POST">
+    <fieldset>
+    <legend>Add A Resource</legend>
+    {{ forms.render(resources_form) }}
+    <p><input type="Submit" value="Save Resource"></p>
+    </fieldset>
+    </form>
+
+<form action="/route" method="POST">
+    <fieldset>
+    <legend>Add A Route</legend>
+    {{ forms.render(routes_form) }}
+    <p><input type="Submit" value="Save Route"></p>
+    </fieldset>
+    </form>
+>>>>>>> Got Flask app UI to workgit add .
+{% endblock content %}
