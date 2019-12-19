@@ -4,6 +4,8 @@
     
 _"Pigeons are kept in lofts, chickens in coops, and falconers keep their birds in structures known as mews"_
 
+Welcome to Mews! I made this little module-thing at home in my free hours when I was learning how to create Falcon apps and use SQLAlchemy at work. I'm still learning and working on this project when I get the time. If you want to use my code, feel free! 
+
 ## Demo
 Use 'sample_template.yaml' in place of 'template.yaml' and run. Check the subsequently created folder, 'MyProject', to see the files.
 
